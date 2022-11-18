@@ -1,0 +1,14 @@
+<div class="container">
+    <h1 matDialogTitle>{{ cliente!=null ? 'Editar Cliente' : 'Nuevo Cliente' }}</h1>
+    <div mat-dialog-content >
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="nombre">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="botones" >
+        <button mat-raised-button color="red"  (click)="close()" >Cancelar</button>
+        <button mat-raised-button color="primary" 
+        (click)="cliente!=null ? editCliente() : addCliente()" >Guardar</button>
+    </div>
+</div>

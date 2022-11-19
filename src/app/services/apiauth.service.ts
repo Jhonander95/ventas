@@ -20,20 +20,20 @@ const httpOption = {
 export class ApiauthService {
     url: string ='http://localhost:7200/api/user/login';
 
-    /* private usuarioSuject!: BehaviorSubject<Usuario>; */
+    private usuarioSuject: BehaviorSubject<Usuario>;
 
-    /* public get usuarioData(): Usuario{
+     public get usuarioData(): Usuario{
       return this.usuarioSuject.value;
-    } */
+    } 
     
     constructor( private _http: HttpClient){
-    /* this.usuarioSuject = 
-      new BehaviorSubject<Usuario>(JSON.parse(localStorage.getItem('usuario') || '{}' )); */ 
+     this.usuarioSuject = 
+      new BehaviorSubject<Usuario>(JSON.parse(localStorage.getItem('usuario'))); 
     }
 
     login(email: string, password: string): Observable<Response>{
-        return this._http.post<Response>(this.url, {email, password}, httpOption);
-        /* return this._http.post<Response>(this.url, {email, password}, httpOption).pipe(
+        //return this._http.post<Response>(this.url, {email, password}, httpOption);
+         return this._http.post<Response>(this.url, {email, password}, httpOption).pipe(
           map(res => {
             if (res.exito === 1){
               const usuario: Usuario = res.data;
@@ -43,11 +43,11 @@ export class ApiauthService {
 
             return res; 
           })
-        ); */
+        ); 
     }
 
-    /* logout(){
+     logout(){
       localStorage.removeItem('usuario');
-      this.usuarioSuject.next(this.usuarioData);
-    } */
+      this.usuarioSuject.next(null);
+    } 
 }

@@ -12,12 +12,12 @@ export class AuthGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot){
-       /*  const usuario = this.apiauthService.usuarioData;
+        const usuario = this.apiauthService.usuarioData;
 
         if(usuario){
             return true;
         }
- */
+ 
         this.router.navigate(['/login']);
         return false;
     }

@@ -17,7 +17,7 @@ import { DialogClienteComponent } from './cliente/dialog/dialogcliente.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogDeleteComponent } from './comon/delete/dialogdelete.component';
 import { LoginComponent } from './login/login.component'; 
-/* import { JwtInterceptor } from './security/jwt.interceptor'; */
+import { JwtInterceptor } from './security/jwt.interceptor'; 
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule
   ],
   providers: [
-    /* { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } */
+     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } 
   ],
   bootstrap: [AppComponent]
 })

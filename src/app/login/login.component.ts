@@ -13,15 +13,15 @@ import { Login } from "../models/login";
 
 export class LoginComponent implements OnInit{
 
-    public password!: string;
-    public email!: string;
+ /*    public password: string;
+    public email: string; */
 
     
 
-   /*  public loginForm = new FormGroup({
+    public loginForm = new FormGroup({
         email: new FormControl(''),
         password: new FormControl('')
-    }); */
+    }); 
 
 
     
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit{
     login(){
         /* console.log(this.loginForm.value)
         console.log(this.email, this.password) */
-        this.apiauthService.login(this.email, this.password).subscribe(response => {
+        this.apiauthService.login(this.loginForm.value).subscribe(response => {
             if(response.exito === 1){
                 this.router.navigate(['/']);
                 console.log(response.exito);

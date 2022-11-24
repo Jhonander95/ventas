@@ -31,9 +31,9 @@ export class ApiauthService {
       new BehaviorSubject<Usuario>(JSON.parse(localStorage.getItem('usuario'))); 
     }
 
-    login(login: Login): Observable<Response>{
+    login(email: string, password: string): Observable<Response>{
         //return this._http.post<Response>(this.url, {email, password}, httpOption);
-         return this._http.post<Response>(this.url, login, httpOption).pipe(
+         return this._http.post<Response>(this.url, {email, password}, httpOption).pipe(
           map(res => {
             if (res.exito === 1){
               const usuario: Usuario = res.data;
